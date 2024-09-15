@@ -1,0 +1,23 @@
+name: CI-CD
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  CI:
+    runs-on: ubunto-latest
+
+    steps:
+      - uses: actions/checkout@v4.1.7
+      - name: Construção da imagem docker
+        uses: docker/build-push-action@v6.7.0
+        with:
+          context: ./src
+          file: ./src/Dockerfile
+          push: true
+          tags: |
+            jorgeluiz/live-kube-news:v1
+            jorgeluiz/live-kube-news:latest
+            
+      
