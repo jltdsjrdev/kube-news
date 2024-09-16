@@ -24,7 +24,7 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: |
-            jorgeluiz/live-kube-news:v1
+            jorgeluiz/live-kube-news:${{github.run.number}}
             jorgeluiz/live-kube-news:latest
             
       
